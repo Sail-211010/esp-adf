@@ -4,6 +4,14 @@ set(COMPONENT_ADD_INCLUDEDIRS ./include)
 set(COMPONENT_REQUIRES )
 set(COMPONENT_PRIV_REQUIRES esp_peripherals audio_sal audio_hal esp_dispatcher display_service)
 
+if (CONFIG_WAVESHARE_ESP32_S3_TOUCH_LCD_1_85C)
+message(STATUS "Current board name is " CONFIG_WAVESHARE_ESP32_S3_TOUCH_LCD_1_85C)
+list(APPEND COMPONENT_ADD_INCLUDEDIRS ./waveshare_esp32_s3_touch_lcd_1_85c)
+set(COMPONENT_SRCS
+./waveshare_esp32_s3_touch_lcd_1_85c/board.c
+./waveshare_esp32_s3_touch_lcd_1_85c/board_pins_config.c
+)
+endif()
 
 if (CONFIG_ESP_LYRAT_V4_2_BOARD)
 message(STATUS "Current board name is " CONFIG_ESP_LYRAT_V4_2_BOARD)
